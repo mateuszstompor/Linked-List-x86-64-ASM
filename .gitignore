@@ -1,6 +1,22 @@
 # Prerequisites
 *.d
 
+# Programming environment
+.idea/
+
+# CMake cache
+CMakeCache.txt
+install_manifest.txt
+CMakeFiles/
+Makefile
+*.json
+*.cmake
+*.cbp
+
+# Executables
+linked_list_tests
+linked_list
+
 # Object files
 *.o
 *.ko
