@@ -1,15 +1,7 @@
-%ifdef APPLE
-global _insert
-%else
-global insert
-%endif
+%include "source/functions.asm"
 
+global INSERT
 section .text
 
-%ifdef APPLE
-_insert:
+INSERT:
     ret
-%else
-insert:
-    ret
-%endif
