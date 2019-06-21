@@ -12,8 +12,10 @@ int compare(void * lhs, void * rhs) {
   return 0;
 }
 
-TEST (AllocTest, AllocAndRelease) {
-    linked_list * list;
+TEST(AllocTest, AllocAndRelease) {
+    linked_list * list = NULL;
+    ASSERT_EQ(list, (void *)NULL);
     list = ll_alloc(&compare);
+    ASSERT_NE(list, (void *)NULL);
     ll_release(list);
 }
