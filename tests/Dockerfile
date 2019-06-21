@@ -9,6 +9,6 @@ COPY ./tests /var/tmp/linked_list/tests/
 COPY ./tests/install_gtest.sh /var/tmp/gtest/install_gtest.sh
 
 RUN /var/tmp/gtest/install_gtest.sh
-RUN cd /var/tmp/linked_list && cmake . && make install
+RUN cd /var/tmp/linked_list && cmake . -DBUILD_TESTING=ON && make all
 
 ENTRYPOINT /var/tmp/linked_list/linked_list_tests
