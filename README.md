@@ -44,6 +44,15 @@ Then, install the library and its headers. It is going to be a static lib.
 ```bash
 make install
 ```
+# An example
+```C
+#include <linked_list>
+
+int main() {
+  linked_list * list = ll_alloc(&compare);
+  ll_release(list);
+}
+```
 
 # What is going on under the hood?
 <h3>Linked list structure</h3>

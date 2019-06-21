@@ -10,8 +10,8 @@ section .text
 LL_ALLOC:
     mov dword rax, MMAP         ; mmap2
     xor rdi, rdi                ; addr = NULL
-    mov dword rsi, 4096         ; len = 4096
-    xor r9, r9                  ; offset = 0 (4096*0)
+    mov dword rsi, 32           ; len = 32
+    xor r9, r9                  ; offset = 0 (32*0)
     mov dword r8, -1            ; fd = -1
     mov dword rdx, PROT_READ
     mov dword rcx, MAP_PRIVATE
