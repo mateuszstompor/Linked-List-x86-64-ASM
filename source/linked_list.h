@@ -6,14 +6,9 @@
 
 #include <stddef.h>
 
-typedef struct node {
-    void * value;
-    node * next;
-} node;
+typedef void linked_list;
+typedef void T;
+typedef int (*compare_function)(void *, void *);
 
-typedef struct linked_list {
-    node * head;
-    size_t size;
-} linked_list;
-
-extern "C" void insert(linked_list * list, void * value);
+extern "C" linked_list *  ll_alloc    (compare_function);
+extern "C" void           ll_release  (linked_list *);

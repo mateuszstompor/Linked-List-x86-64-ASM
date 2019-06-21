@@ -1,11 +1,8 @@
 # Linked-List-x86-64-ASM
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-<br>
-Boring, well known and one of the easiest data structure to implement. 
-<br>
-<h3>BUT WAIT!</h3>
-<br>
-this is written in assembly. 🤪
+
+# Convention
+All functions of the library start with 'll' prefix, as you might guess it stands for 'linked list'.
 
 # Supported platforms
 Library works only on 64-bit systems
@@ -43,4 +40,4 @@ Then, install the library and its headers. It is going to be a static lib.
 
 ```bash
 make install
-``` 
+```

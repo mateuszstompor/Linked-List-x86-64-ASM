@@ -1,7 +1,7 @@
 %include "source/functions.asm"
 
-global INSERT
+global LL_RELEASE
 section .text
 
-INSERT:
+LL_RELEASE:
     ret
