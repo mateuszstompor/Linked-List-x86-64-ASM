@@ -4,15 +4,13 @@
 
 #pragma once
 
-#include <stdlib.h>
 #include <gtest/gtest.h>
 #include <linked_list.h>
 
-int compare(void * lhs, void * rhs) {
-  return 0;
-}
+#include "helpers.h"
 
-TEST(AllocTest, AllocAndRelease) {
+
+TEST(AllocListTest, AllocAndRelease) {
     linked_list * list = NULL;
     ASSERT_EQ(list, (void *)NULL);
     list = ll_alloc(&compare);
