@@ -2,22 +2,32 @@
 ; Created by Mateusz Stompór on 20/06/2019.
 ;
 
-%include "source/functions.asm"
+%include "source/mmap.asm"
+%include "source/list.asm"
 %include "source/syscalls.asm"
-
-%define PROT_READ   0x1
-%define MAP_PRIVATE 0x2
 
 global LL_ALLOC
 section .text
 
 LL_ALLOC:
-    xor r9, r9                  ; offset = 0 (32*0)
-    xor rdi, rdi                ; addr = NULL
-    mov rax, MMAP         ; mmap2
-    mov rsi, 32           ; len = 32
-    mov r8, -1            ; fd = -1
-    mov rdx, PROT_READ
-    mov rcx, MAP_PRIVATE
+    ; allocate storage
+    push rdi
+    mov rax, MMAP
+    xor rdi, rdi
+    mov rsi, 32
+    mov rdx, PROT_READ | PROT_WRITE
+    mov r10, MAP_SHARED | MAP_ANONYMOUS
+    mov r8, -1
+    xor r9, r9
     syscall
+    ; initialize
+    mov rcx, rax
+    mov qword [rcx], 0  ; head
+    add rcx, 8
+    mov qword [rcx], 0  ; last
+    add rcx, 8
+    pop rdi
+    mov [rcx], rdi      ; compare func
+    add rcx, 8
+    mov qword [rcx], 0  ; size
     ret
