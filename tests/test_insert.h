@@ -10,21 +10,31 @@
 #include "helpers.h"
 
 
-TEST(ListInsertTest, EmptyListInsertion) {
-    linked_list * list = ll_alloc(&compare);
-    iterator * it = lli_alloc();
+class InsertTestFixture : public ::testing::Test {
+protected:
+    virtual void SetUp() {
+        list = ll_alloc(&compare);
+        it = lli_alloc();
+    }
+    virtual void TearDown() {
+        ll_release(list);
+        lli_release(it);
+    }
+    linked_list * list;
+    iterator * it;
+};
+
+
+
+TEST_F(InsertTestFixture, EmptyListInsertion) { ;
     lli_begin(it, list);
     int val = 1;
     ll_insert(list, it, (void *)&val);
-
-    uint64_t head = *(uint64_t*)list;
-    uint64_t last = *((uint64_t*)list+1);
-    uint64_t size = *((uint64_t*)list+3);
-
-    ASSERT_EQ(head, last);
-    ASSERT_NE(head, (uint64_t)NULL);
-    ASSERT_EQ(size, 1);
-
-    lli_release(it);
-    ll_release(list);
+    ll_list * l = (ll_list *)list;
+    ASSERT_EQ(l->head, l->last);
+    ASSERT_NE(l->head, (ll_node *)NULL);
+    ASSERT_EQ(l->size, 1);
+    ll_node * n = l->head;
+    ASSERT_EQ(n->value, &val);
+    ASSERT_EQ(n->next, (ll_node *)NULL);
 }

@@ -16,5 +16,3 @@
       %define LL_INSERT   ll_insert
     %endif
 %endif
-
-

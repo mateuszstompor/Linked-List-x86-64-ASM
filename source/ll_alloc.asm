@@ -4,6 +4,7 @@
 
 %include "source/list.asm"
 %include "source/memory_management.asm"
+%include "source/sizes.asm"
 
 global LL_ALLOC
 section .text
@@ -11,7 +12,7 @@ section .text
 LL_ALLOC:
     ; allocate storage
     push rdi
-    mov rdi, 32
+    mov rdi, LL_LIST_SIZE
     call ll_mem_allocate
     ; initialize
     mov rcx, rax
