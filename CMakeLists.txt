@@ -36,7 +36,7 @@ install(TARGETS linked_list
 # linked_list tests
 #
 
-#IF (BUILD_TESTING)
+IF (BUILD_TESTING)
   find_package(GTest REQUIRED)
   find_package (Threads REQUIRED)
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -Werror -Wall")
@@ -45,4 +45,4 @@ install(TARGETS linked_list
   target_link_libraries(linked_list_tests ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} linked_list)
   add_test(linked_list_tests linked_list_tests)
   set_tests_properties (linked_list_tests PROPERTIES PASS_REGULAR_EXPRESSION "Passed")
-#ENDIF(BUILD_TESTING)
+ENDIF(BUILD_TESTING)
