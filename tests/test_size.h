@@ -9,21 +9,39 @@
 
 #include "helpers.h"
 
-TEST(SizeTest, EmptyListSize) {
-    linked_list * list = ll_alloc(&compare);
+
+class SizeTestFixture : public ::testing::Test {
+protected:
+    virtual void SetUp() {
+        list = ll_alloc(&compare);
+        it = lli_alloc();
+    }
+    virtual void TearDown() {
+        ll_release(list);
+        lli_release(it);
+    }
+    linked_list * list;
+    iterator * it;
+};
+
+TEST_F(SizeTestFixture, EmptyListSize) {
     ASSERT_EQ(ll_size(list), 0);
-    ll_release(list);
 }
 
-TEST(SizeTest, OneElementListSize) {
-    linked_list * list = ll_alloc(&compare);
-    iterator * it = lli_alloc();
+TEST_F(SizeTestFixture, OneElementListSize) {
     lli_begin(it, list);
     int value = 3;
     ll_insert(list, it, (void *)&value);
 
     ASSERT_EQ(ll_size(list), 1);
+}
 
-    lli_release(it);
-    ll_release(list);
+TEST_F(SizeTestFixture, TwoElementListSize) {
+    lli_begin(it, list);
+    int value = 3;
+    ll_insert(list, it, (void *)&value);
+    lli_begin(it, list);
+    ll_insert(list, it, (void *)&value);
+
+    ASSERT_EQ(ll_size(list), 2);
 }
