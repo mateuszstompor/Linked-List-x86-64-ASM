@@ -15,14 +15,17 @@ LLI_ALLOC:
     ; allocate storage
     mov rax, MMAP
     xor rdi, rdi
-    mov rsi, 8
+    mov rsi, 16
     mov rdx, PROT_READ | PROT_WRITE
     mov r10, MAP_SHARED | MAP_ANONYMOUS
     mov r8, -1
     xor r9, r9
     syscall
     ; initialize
-    mov qword [rax], 0
+    mov rcx, rax
+    mov qword [rcx], 0
+    add rcx, 8
+    mov qword [rcx], 0
     ; deallocate space
     add rsp, 8
     ret

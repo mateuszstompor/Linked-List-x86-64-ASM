@@ -11,6 +11,6 @@ section .text
 LLI_RELEASE:
   ; address sits in rdi register
   mov rax, MUNMAP
-  mov rsi, 8
+  mov rsi, 16
   syscall
   ret

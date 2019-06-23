@@ -84,9 +84,10 @@ int main() {
 <h3>Iterator structure</h3>
 
 ```
-+---------------+---------+-----------------------------+
-| Variable name |  Size   |         Description         |
-+---------------+---------+-----------------------------+
-| current       | 8 bytes | Pointer to the current node |
-+---------------+---------+-----------------------------+
++---------------+---------+------------------------------------+
+| Variable name |  Size   |            Description             |
++---------------+---------+------------------------------------+
+| current       | 8 bytes | Pointer to the current node        |
+| previous      | 8 bytes | Pointer to the node before current |
++---------------+---------+------------------------------------+
 ```
