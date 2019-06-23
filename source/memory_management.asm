@@ -1,3 +1,7 @@
+;
+; Created by Mateusz Stompór on 24/06/2019.
+;
+
 %ifndef LL_MEMORY_MANAGEMENT
 %define LL_MEMORY_MANAGEMENT
 
