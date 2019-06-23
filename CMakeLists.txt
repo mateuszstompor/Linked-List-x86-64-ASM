@@ -20,6 +20,7 @@ endif()
 set(LINKED_LIST_SOURCES source/ll_alloc.asm
                         source/ll_release.asm
                         source/ll_size.asm
+                        source/ll_insert.asm
                         source/lli_alloc.asm
                         source/lli_release.asm
                         source/lli_begin.asm)
@@ -35,7 +36,7 @@ install(TARGETS linked_list
 # linked_list tests
 #
 
-IF (BUILD_TESTING)
+#IF (BUILD_TESTING)
   find_package(GTest REQUIRED)
   find_package (Threads REQUIRED)
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -Werror -Wall")
@@ -44,4 +45,4 @@ IF (BUILD_TESTING)
   target_link_libraries(linked_list_tests ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} linked_list)
   add_test(linked_list_tests linked_list_tests)
   set_tests_properties (linked_list_tests PROPERTIES PASS_REGULAR_EXPRESSION "Passed")
-ENDIF(BUILD_TESTING)
+#ENDIF(BUILD_TESTING)

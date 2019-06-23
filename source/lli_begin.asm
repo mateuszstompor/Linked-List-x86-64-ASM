@@ -3,6 +3,7 @@
 ;
 
 %include "source/iterator.asm"
+%include "source/memory_management.asm"
 
 global LLI_BEGIN
 section .text

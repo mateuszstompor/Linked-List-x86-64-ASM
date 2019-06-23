@@ -3,14 +3,15 @@
 ;
 
 %include "source/iterator.asm"
-%include "source/syscalls.asm"
+%include "source/memory_management.asm"
 
 global LLI_RELEASE
 section .text
 
 LLI_RELEASE:
-  ; address sits in rdi register
-  mov rax, MUNMAP
-  mov rsi, 16
-  syscall
-  ret
+    ; address sits in rdi register
+    sub rsp, 8
+    mov rdi, 16
+    call ll_mem_release
+    add rsp, 8
+    ret

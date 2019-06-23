@@ -8,10 +8,12 @@
       %define LL_ALLOC    _ll_alloc
       %define LL_SIZE     _ll_size
       %define LL_RELEASE  _ll_release
+      %define LL_INSERT   _ll_insert
     %else
       %define LL_ALLOC    ll_alloc
       %define LL_SIZE     ll_size
       %define LL_RELEASE  ll_release
+      %define LL_INSERT   ll_insert
     %endif
 %endif
 
