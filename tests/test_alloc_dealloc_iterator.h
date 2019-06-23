@@ -14,3 +14,10 @@ TEST(AllocIteratorTest, AllocAndRelease) {
     ASSERT_NE(it, (void *)NULL);
     lli_release(it);
 }
+
+TEST(AllocIteratorTest, InitialStructure) {
+    iterator * it = lli_alloc();
+    ASSERT_EQ(*(uint64_t *)it, 0);
+    ASSERT_EQ(*((uint64_t *)it+1), 0);
+    lli_release(it);
+}

@@ -36,7 +36,7 @@ docker run --rm -it linked_list_tests
 # Installing
 Configure the project
 ```bash
-cmake .
+cmake . -DCMAKE_BUILD_TYPE=Release
 ```
 
 Then, install the library and its headers. It is going to be a static lib.
@@ -47,9 +47,32 @@ make install
 # An example
 ```C
 #include <linked_list>
+#include <stdio.h>
+
+int compare(void * lhs, void * rhs) {
+    int l = *(int *)lhs;
+    int r = *(int *)rhs;
+    if (l == r) {
+        return 0;
+    } else if (l > r) {
+        return 1;
+    } else {
+        return -1;
+    }
+}
 
 int main() {
+  // allocate list with the comparison function
   linked_list * list = ll_alloc(&compare);
+  
+  // create an iterator
+  iterator * it = lli_alloc();
+  // point the iterator at the head of the list
+  lli_begin(it, list);
+  // release after using the iterator;
+  lli_release(it);
+  
+  // release the list
   ll_release(list);
 }
 ```

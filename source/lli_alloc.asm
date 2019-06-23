@@ -23,9 +23,9 @@ LLI_ALLOC:
     syscall
     ; initialize
     mov rcx, rax
-    mov qword [rcx], 0
+    mov qword [rcx], 0 ; current
     add rcx, 8
-    mov qword [rcx], 0
+    mov qword [rcx], 0 ; previous
     ; deallocate space
     add rsp, 8
     ret

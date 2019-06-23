@@ -7,8 +7,10 @@
     %ifdef APPLE
       %define LLI_ALLOC    _lli_alloc
       %define LLI_RELEASE  _lli_release
+      %define LLI_BEGIN    _lli_begin
     %else
       %define LLI_ALLOC    lli_alloc
       %define LLI_RELEASE  lli_release
+      %define LLI_BEGIN    lli_begin
     %endif
 %endif
