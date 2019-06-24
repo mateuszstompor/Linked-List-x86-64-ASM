@@ -14,8 +14,8 @@ TEST(ListBeginTest, IteratorStructure) {
     linked_list * list = ll_alloc(&compare);
     iterator * it = lli_alloc();
     lli_begin(it, list);
-    ASSERT_EQ(*(uint64_t *)it, 0);
-    ASSERT_EQ(*((uint64_t *)it+1), 0);
+    ASSERT_EQ(((ll_iterator *)it)->current, (void *)NULL);
+    ASSERT_EQ(((ll_iterator *)it)->previous, (void *)NULL);
     lli_release(it);
     ll_release(list);
 }

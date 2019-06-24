@@ -30,7 +30,7 @@ docker build -f ./tests/Dockerfile -t linked_list_tests .
 
 Run the container
 ```bash
-docker run --rm -it linked_list_tests
+docker run --rm -it linked_list_tests all
 ```
 
 # Installing

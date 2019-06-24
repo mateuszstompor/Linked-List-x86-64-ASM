@@ -14,4 +14,4 @@ COPY ./tests/perform_tests.sh /var/tmp/perform_tests.sh
 
 RUN cd /var/tmp/linked_list && cmake . -DBUILD_TESTING=ON && make all
 
-ENTRYPOINT /var/tmp/perform_tests.sh
+ENTRYPOINT ["/var/tmp/perform_tests.sh"]

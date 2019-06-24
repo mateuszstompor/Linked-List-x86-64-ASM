@@ -7,6 +7,8 @@
 #include <gtest/gtest.h>
 #include <linked_list.h>
 
+#include "helpers.h"
+
 TEST(AllocIteratorTest, AllocAndRelease) {
     iterator * it = NULL;
     ASSERT_EQ(it, (void *)NULL);
@@ -17,7 +19,7 @@ TEST(AllocIteratorTest, AllocAndRelease) {
 
 TEST(AllocIteratorTest, InitialStructure) {
     iterator * it = lli_alloc();
-    ASSERT_EQ(*(uint64_t *)it, 0);
-    ASSERT_EQ(*((uint64_t *)it+1), 0);
+    ASSERT_EQ(((ll_iterator *)it)->current, (void *)NULL);
+    ASSERT_EQ(((ll_iterator *)it)->previous, (void *)NULL);
     lli_release(it);
 }

@@ -20,9 +20,10 @@ TEST(ListInitTest, AllocAndRelease) {
 
 TEST(ListInitTest, TestInitialStructure) {
     linked_list * list = ll_alloc(&compare);
-    ASSERT_EQ(*(uint64_t *)list, 0);
-    ASSERT_EQ(*(((uint64_t *)list) + 1), 0);
-    ASSERT_EQ(*(((uint64_t *)list) + 2), (uint64_t)(&compare));
-    ASSERT_EQ(*(((uint64_t *)list) + 3), 0);
+    ll_list * l = (ll_list *)list;
+    ASSERT_EQ(l->head, (void *)NULL);
+    ASSERT_EQ(l->last, (void *)NULL);
+    ASSERT_EQ(l->compare_function, &compare);
+    ASSERT_EQ(l->size, 0);
     ll_release(list);
 }
