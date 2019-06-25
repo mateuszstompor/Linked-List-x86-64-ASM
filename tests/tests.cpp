@@ -2,6 +2,7 @@
 // Created by Mateusz Stompór on 20/06/2019.
 //
 
+#include "test_end.h"
 #include "test_size.h"
 #include "test_begin.h"
 #include "test_insert.h"

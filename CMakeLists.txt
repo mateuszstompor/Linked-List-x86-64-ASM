@@ -24,6 +24,7 @@ set(LINKED_LIST_SOURCES source/ll_alloc.asm
                         source/lli_alloc.asm
                         source/lli_release.asm
                         source/lli_begin.asm
+                        source/lli_end.asm
                         source/lli_dereference.asm)
 add_library(linked_list STATIC ${LINKED_LIST_SOURCES})
 set_target_properties(linked_list PROPERTIES LINKER_LANGUAGE ASM_NASM)
