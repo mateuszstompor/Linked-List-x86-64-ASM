@@ -5,6 +5,7 @@
 #include "test_size.h"
 #include "test_begin.h"
 #include "test_insert.h"
+#include "test_dereference.h"
 #include "test_alloc_dealloc_list.h"
 #include "test_alloc_dealloc_iterator.h"
 
