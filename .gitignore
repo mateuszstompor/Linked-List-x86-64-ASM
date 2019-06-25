@@ -2,10 +2,11 @@
 *.d
 
 # Programming environment
-.idea/
+.idea*
 
 # CMake cache
 CMakeCache.txt
+cmake-build-debug
 install_manifest.txt
 CMakeFiles/
 Makefile
@@ -14,7 +15,7 @@ Makefile
 *.cbp
 
 # Executables
-linked_list_tests
+linked_list_tests*
 linked_list
 
 # Object files

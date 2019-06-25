@@ -27,21 +27,37 @@ LL_INSERT:
     pop rsi
     pop rdi
 
-    ; set new node properties
-    mov rcx, rax
+
     ; set value which the node keeps
-    mov [rcx], rdx
-    add rcx, 8
+    mov [rax], rdx
     mov rdx, [rsi]
     ; set next node of newly created node
-    mov [rcx], rdx
+    mov [rax + 8], rdx
 
-    ; assign head
-    mov [rdi], rax
-    add rdi, 8
-    ; assign last
-    mov [rdi], rax
-    add rdi, 16
-    ; increase size
-    add qword [rdi], 1
+
+    mov r8, 0
+    mov r9, [rdi]
+    iterate_through_list:
+        cmp r9, [rsi]
+        je add_node
+
+        mov r8, r9
+        mov r9, [r9 + 8]
+        jmp iterate_through_list
+
+    add_node:
+        cmp r8, 0
+        jne add_middle
+        add_head:
+           mov [rdi], rax
+           jmp update_last
+        add_middle:
+           mov [r8 + 8], rax
+        update_last:
+        cmp dword [rsi], 0
+        jne skip_last
+        assign_last:
+            mov [rdi + 8], rax
+        skip_last:
+    add qword [rdi + 24], 1
     ret

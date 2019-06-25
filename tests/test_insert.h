@@ -38,3 +38,19 @@ TEST_F(InsertTestFixture, EmptyListInsertion) { ;
     ASSERT_EQ(n->value, &val);
     ASSERT_EQ(n->next, (ll_node *)NULL);
 }
+
+TEST_F(InsertTestFixture, OneNodeListInsertionAtTheBeginning) { ;
+    lli_begin(it, list);
+    int val1 = 1, val2 = 2;
+    ll_insert(list, it, (void *)&val1);
+    lli_begin(it, list);
+    ll_insert(list, it, (void *)&val2);
+
+    ll_list * l = (ll_list *)list;
+    ASSERT_EQ(l->size, 2);
+    ASSERT_NE(l->head, l->last);
+    ASSERT_EQ(l->last->next, (void *)NULL);
+    ASSERT_EQ(l->last->value, (void *)&val1);
+    ASSERT_EQ(l->head->next, l->last);
+    ASSERT_EQ(l->head->value, (void *)&val2);
+}
