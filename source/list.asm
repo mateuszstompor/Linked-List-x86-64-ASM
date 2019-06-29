@@ -9,10 +9,12 @@
       %define LL_SIZE     _ll_size
       %define LL_RELEASE  _ll_release
       %define LL_INSERT   _ll_insert
+      %define LL_EMPTY    _ll_empty
     %else
       %define LL_ALLOC    ll_alloc
       %define LL_SIZE     ll_size
       %define LL_RELEASE  ll_release
       %define LL_INSERT   ll_insert
+      %define LL_EMPTY    ll_empty
     %endif
 %endif

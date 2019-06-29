@@ -64,14 +64,25 @@ int compare(void * lhs, void * rhs) {
 int main() {
   // allocate list with the comparison function
   linked_list * list = ll_alloc(&compare);
-  
+
+  // check if the list is empty
+  ll_empty(list)
+
   // create an iterator
   iterator * it = lli_alloc();
+
   // point the iterator at the head of the list
   lli_begin(it, list);
+
+  // declare an element
+  int element = 10;
+
+  // add the element to the list
+  ll_insert(list, it, (void *)&element)
+
   // release after using the iterator;
   lli_release(it);
-  
+
   // release the list
   ll_release(list);
 }
