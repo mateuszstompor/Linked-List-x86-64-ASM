@@ -15,13 +15,14 @@ LL_ALLOC:
     mov rdi, LL_LIST_SIZE
     call ll_mem_allocate
     ; initialize
+    xor rsi, rsi
     mov rcx, rax
-    mov qword [rcx], 0  ; head
+    mov qword [rcx], rsi  ; head
     add rcx, 8
-    mov qword [rcx], 0  ; last
+    mov qword [rcx], rsi  ; last
     add rcx, 8
     pop rdi
     mov [rcx], rdi      ; compare func
     add rcx, 8
-    mov qword [rcx], 0  ; size
+    mov qword [rcx], rsi  ; size
     ret

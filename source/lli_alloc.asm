@@ -17,9 +17,10 @@ LLI_ALLOC:
     call ll_mem_allocate
     ; initialize
     mov rcx, rax
-    mov qword [rcx], 0 ; current
+    xor rsi, rsi
+    mov qword [rcx], rsi ; current
     add rcx, 8
-    mov qword [rcx], 0 ; previous
+    mov qword [rcx], rsi ; previous
     ; deallocate space
     add rsp, 8
     ret

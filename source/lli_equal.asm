@@ -17,7 +17,7 @@ LLI_EQUAL:
     ; rsi - pointer to the second iterator
 
     mov rax, 1
-    mov rdx, 0
+    xor rdx, rdx
     mov rcx, [rdi]
     cmp rcx, [rsi]
     cmovne rax, rdx

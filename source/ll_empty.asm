@@ -14,6 +14,6 @@ LL_EMPTY:
     mov rax, 1
     cmp rdi, 0
     je finish
-    mov rax, 0
+    xor rax, rax
     finish:
     ret

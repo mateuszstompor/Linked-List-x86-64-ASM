@@ -35,7 +35,7 @@ LL_INSERT:
     mov [rax + 8], rdx
 
 
-    mov r8, 0
+    xor r8, r8
     mov r9, [rdi]
     iterate_through_list:
         cmp r9, [rsi]
