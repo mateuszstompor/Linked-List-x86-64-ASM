@@ -46,8 +46,9 @@ make install
 ```
 # An example
 ```C
-#include <linked_list>
 #include <stdio.h>
+#include <linked_list>
+
 
 int compare(void * lhs, void * rhs) {
     int l = *(int *)lhs;
@@ -79,6 +80,13 @@ int main() {
 
   // add the element to the list
   ll_insert(list, it, (void *)&element)
+
+  // after insertion the iterator is no longer valid
+  // set it once again at the beginning of the list
+  lli_begin(it, list);
+
+  // get the value from the iterator
+  printf("%d\n", *(int *)lli_dereference(it));
 
   // release after using the iterator;
   lli_release(it);
