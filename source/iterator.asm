@@ -10,11 +10,15 @@
       %define LLI_BEGIN         _lli_begin
       %define LLI_END           _lli_end
       %define LLI_DEREFERENCE   _lli_dereference
+      %define LLI_EQUAL         _lli_equal
+      %define LLI_ITERATE       _lli_iterate
     %else
       %define LLI_ALLOC         lli_alloc
       %define LLI_RELEASE       lli_release
       %define LLI_BEGIN         lli_begin
       %define LLI_END           lli_end
       %define LLI_DEREFERENCE   lli_dereference
+      %define LLI_EQUAL         lli_equal
+      %define LLI_ITERATE       lli_iterate
     %endif
 %endif

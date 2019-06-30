@@ -10,7 +10,7 @@
 #include "helpers.h"
 
 
-class EmptinessTestFixture : public ::testing::Test {
+class IterateTestFixture : public ::testing::Test {
 protected:
     virtual void SetUp() {
         list = ll_alloc(&compare);
@@ -25,20 +25,21 @@ protected:
     int value = 10;
 };
 
-TEST_F(EmptinessTestFixture, EmptyListEmptiness) {
-    ASSERT_TRUE(ll_empty(list));
+TEST_F(IterateTestFixture, EmptyListIterate) {
+    lli_begin(it, list);
+    ll_iterator * i  = (ll_iterator * )it;
+    lli_iterate(it);
+    ASSERT_EQ(i->current, (void*)NULL);
+    ASSERT_EQ(i->previous, (void*)NULL);
 }
 
-TEST_F(EmptinessTestFixture, OneElementListEmptiness) {
-    lli_begin(it, list);
-    ll_insert(list, it, (void *)&value);
-    ASSERT_FALSE(ll_empty(list));
-}
-
-TEST_F(EmptinessTestFixture, TwoElementListEmptiness) {
+TEST_F(IterateTestFixture, OneElementListIterate) {
     lli_begin(it, list);
     ll_insert(list, it, (void *)&value);
     lli_begin(it, list);
-    ll_insert(list, it, (void *)&value);
-    ASSERT_FALSE(ll_empty(list));
+    ll_iterator * i  = (ll_iterator * )it;
+    ll_list * l  = (ll_list * )list;
+    lli_iterate(it);
+    ASSERT_EQ(i->current, (void*)NULL);
+    ASSERT_EQ(i->previous, l->head);
 }
