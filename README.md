@@ -1,5 +1,6 @@
 # Linked-List-x86-64-ASM
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/mateuszstompor/Linked-List-x86-64-ASM.svg?branch=master)](https://travis-ci.org/mateuszstompor/Linked-List-x86-64-ASM)
 
 # Convention
 All functions of the library start with 'll' prefix, as you might guess it stands for 'linked list'.
