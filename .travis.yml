@@ -14,5 +14,7 @@ git:
 jobs:
   include:
     - stage: "Tests"
-      script:
-        - docker run --rm -it linked_list_tests all
+      name: "Google unit tests"
+      script: docker run --rm -it linked_list_tests tests
+    - name: "Memory footprint check"
+      script: docker run --rm -it linked_list_tests mem_check
