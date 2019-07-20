@@ -3,11 +3,12 @@
 ;
 
 %include "source/list.asm"
+%include "source/offsets.asm"
 
 global LL_SIZE
 section .text
 
 LL_SIZE:
-    add rdi, 24
+    add rdi, LL_LIST_SIZE_OFFSET
     mov rax, [rdi]
     ret
