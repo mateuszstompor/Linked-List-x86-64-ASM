@@ -14,7 +14,7 @@ LLI_ITERATE:
     je finish
     mov rax, [rdi]
     mov [rdi + LL_ITERATOR_PREVIOUS_OFFSET], rax
-    mov rax, [rax + LL_NODE_CURRENT_OFFSET]
+    mov rax, [rax + LL_NODE_NEXT_OFFSET]
     mov [rdi], rax
     finish:
     ret
