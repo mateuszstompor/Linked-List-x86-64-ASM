@@ -21,7 +21,7 @@ LLI_EQUAL:
     mov rcx, [rdi]
     cmp rcx, [rsi]
     cmovne rax, rdx
-    mov rcx, [rdi + LL_NODE_CURRENT_OFFSET]
-    cmp rcx, [rsi + LL_NODE_CURRENT_OFFSET]
+    mov rcx, [rdi + LL_NODE_NEXT_OFFSET]
+    cmp rcx, [rsi + LL_NODE_NEXT_OFFSET]
     cmovne rax, rdx
     ret

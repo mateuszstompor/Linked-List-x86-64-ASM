@@ -12,7 +12,7 @@ section .text
 LLI_RELEASE:
     ; address sits in rdi register
     sub rsp, 8
-    mov rdi, LL_ITERATOR_SIZE
+    mov rsi, LL_ITERATOR_SIZE
     call ll_mem_release
     add rsp, 8
     ret

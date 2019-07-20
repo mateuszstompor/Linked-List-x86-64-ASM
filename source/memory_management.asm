@@ -31,10 +31,10 @@ ll_mem_release:
     ; About
     ; assumes that user aligns stack before call
     ; Takes
-    ; rdi - size in bytes
+    ; rdi - address
+    ; rsi - size in bytes
     sub rsp, 8
     mov rax, MUNMAP
-    mov rsi, rdi
     syscall
     add rsp, 8
     ret
