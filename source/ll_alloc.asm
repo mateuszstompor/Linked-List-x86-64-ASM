@@ -22,7 +22,7 @@ LL_ALLOC:
     mov qword [rcx], rsi  ; last
     add rcx, 8
     pop rdi
-    mov [rcx], rdi      ; compare func
+    mov [rcx], rdi        ; compare func
     add rcx, 8
     mov qword [rcx], rsi  ; size
     ret

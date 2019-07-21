@@ -10,6 +10,11 @@ global LLI_ITERATE
 section .text
 
 LLI_ITERATE:
+    ; About
+    ; Gets a pointer to an iterator. Advances it by one
+    ; Takes
+    ; rdi - pointer to an iterator
+
     cmp dword [rdi], 0
     je finish
     mov rax, [rdi]

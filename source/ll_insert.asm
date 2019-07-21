@@ -4,6 +4,7 @@
 
 
 %include "source/list.asm"
+%include "source/sizes.asm"
 %include "source/memory_management.asm"
 
 global LL_INSERT
@@ -21,7 +22,7 @@ LL_INSERT:
     push rdi
     push rsi
     push rdx
-    mov rdi, 16
+    mov rdi, LL_NODE_SIZE
     call ll_mem_allocate
     pop rdx
     pop rsi
