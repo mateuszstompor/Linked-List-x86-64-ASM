@@ -8,8 +8,9 @@
 #include "test_empty.h"
 #include "test_insert.h"
 #include "test_iterate.h"
-#include "test_iterator_equal.h"
 #include "test_dereference.h"
+#include "test_release_list.h"
+#include "test_iterator_equal.h"
 #include "test_alloc_dealloc_list.h"
 #include "test_alloc_dealloc_iterator.h"
 
