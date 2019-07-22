@@ -13,7 +13,7 @@
 class ReleaseTestFixture : public ::testing::Test {
 protected:
     int value = 10;
-    unsigned long long iterations = 1000000L;
+    unsigned long long iterations = 100000L;
 };
 
 TEST_F(ReleaseTestFixture, InsertAndDeallocateEachTime) {
