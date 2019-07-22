@@ -3,6 +3,7 @@
 ;
 
 %include "source/iterator.asm"
+%include "source/constants.asm"
 %include "source/memory_management.asm"
 
 global LLI_BEGIN
@@ -12,5 +13,5 @@ LLI_BEGIN:
     mov rcx, [rsi]
     mov [rdi], rcx
     add rdi, 8
-    mov qword [rdi], 0
+    mov qword [rdi], NULL_PTR
     ret

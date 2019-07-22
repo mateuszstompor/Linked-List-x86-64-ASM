@@ -2,8 +2,9 @@
 ; Created by Mateusz Stompór on 30/06/2019.
 ;
 
-%include "source/iterator.asm"
 %include "source/offsets.asm"
+%include "source/iterator.asm"
+%include "source/constants.asm"
 
 
 global LLI_ITERATE
@@ -15,7 +16,7 @@ LLI_ITERATE:
     ; Takes
     ; rdi - pointer to an iterator
 
-    cmp dword [rdi], 0
+    cmp dword [rdi], NULL_PTR
     je finish
     mov rax, [rdi]
     mov [rdi + LL_ITERATOR_PREVIOUS_OFFSET], rax
