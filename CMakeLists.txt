@@ -8,7 +8,7 @@ project(${project_name} C CXX ASM_NASM)
 #
 
 if (WIN32)
-    message(FATAL_ERROR "Windows is not amoung supported platforms")
+    message(FATAL_ERROR "Windows is not among supported platforms")
 elseif(APPLE)
     set (CMAKE_ASM_NASM_FLAGS "${CMAKE_ASM_NASM_FLAGS} -DAPPLE")
 endif()
