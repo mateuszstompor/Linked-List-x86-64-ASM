@@ -6,6 +6,7 @@
 #include "test_size.h"
 #include "test_begin.h"
 #include "test_empty.h"
+#include "test_delete.h"
 #include "test_insert.h"
 #include "test_iterate.h"
 #include "test_dereference.h"

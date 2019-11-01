@@ -17,6 +17,7 @@ extern "C" void           ll_release        (linked_list *);
 extern "C" uint64_t       ll_size           (linked_list *);
 extern "C" bool           ll_empty          (linked_list *);
 extern "C" void           ll_insert         (linked_list *, iterator *, T *);
+extern "C" T *            ll_delete         (linked_list *, iterator *);
 
 extern "C" iterator *     lli_alloc         ();
 extern "C" void           lli_release       (iterator *);

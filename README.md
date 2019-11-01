@@ -89,6 +89,9 @@ int main() {
   // get the value from the iterator
   printf("%d\n", *(int *)lli_dereference(it));
 
+  // delete the value
+  ll_delete(list, it);
+
   // release after using the iterator;
   lli_release(it);
 

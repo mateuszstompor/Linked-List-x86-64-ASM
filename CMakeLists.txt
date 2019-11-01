@@ -22,6 +22,7 @@ set(LINKED_LIST_SOURCES source/ll_alloc.asm
                         source/ll_size.asm
                         source/ll_empty.asm
                         source/ll_insert.asm
+                        source/ll_delete.asm
                         source/lli_alloc.asm
                         source/lli_release.asm
                         source/lli_begin.asm
