@@ -12,7 +12,7 @@ section .text
 
 LL_DELETE:
     ; About
-    ; Inserts a new node to the list
+    ; Deletes given node from a list
     ; Takes
     ; rdi - pointer to a list
     ; rsi - pointer to an iterator
