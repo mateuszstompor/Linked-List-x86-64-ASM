@@ -8,43 +8,6 @@ Each linked list has an associated compare function.
 It is used to search and check for existence of an element.
 Do not store objects of different types in the list.
 
-# Supported platforms
-Library works only on 64-bit systems
-<ul>
-    <li>macOS</li>
-    <li>linux</li>
-</ul>
-
-# Dependencies
-<ul>
-    <li>nasm (tested on 2.13.03)</li>
-    <li>gtest (tested on 1.8.1)</li>
-    <li>gcc with C++14 support (tested on 9.1.0)</li>
-</ul>
-
-
-# Running tests
-Build docker image firstly, execute the command from the root folder of repository
-```bash
-docker build -f ./tests/Dockerfile -t linked_list_tests .
-```
-
-Run the container
-```bash
-docker run --rm -it linked_list_tests all
-```
-
-# Installing
-Configure the project
-```bash
-cmake . -DCMAKE_BUILD_TYPE=Release
-```
-
-Then, install the library and its headers. It is going to be a static lib.
-
-```bash
-make install
-```
 # An example
 ```C
 #include <stdio.h>
@@ -137,4 +100,41 @@ int main() {
 +---------------+---------+------------------------------------+
 | previous      | 8 bytes | Pointer to the node before current |
 +---------------+---------+------------------------------------+
+```
+
+# Supported platforms
+Library works only on 64-bit systems
+<ul>
+    <li>macOS</li>
+    <li>linux</li>
+</ul>
+
+# Dependencies
+<ul>
+    <li>nasm (tested on 2.13.03)</li>
+    <li>gtest (tested on 1.8.1)</li>
+    <li>gcc with C++14 support (tested on 9.1.0)</li>
+</ul>
+
+# Running tests
+Build docker image firstly, execute the command from the root folder of repository
+```bash
+docker build -f ./tests/Dockerfile -t linked_list_tests .
+```
+
+Run the container
+```bash
+docker run --rm -it linked_list_tests all
+```
+
+# Installing
+Configure the project
+```bash
+cmake . -DCMAKE_BUILD_TYPE=Release
+```
+
+Then, install the library and its headers. It is going to be a static lib.
+
+```bash
+make install
 ```
