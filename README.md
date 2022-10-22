@@ -1,12 +1,10 @@
-# Linked-List-x86-64-ASM
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://travis-ci.org/mateuszstompor/Linked-List-x86-64-ASM.svg?branch=master)](https://travis-ci.org/mateuszstompor/Linked-List-x86-64-ASM)
+# Linked-List-x86-64-ASM &middot; [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://travis-ci.org/mateuszstompor/Linked-List-x86-64-ASM.svg?branch=master)](https://travis-ci.org/mateuszstompor/Linked-List-x86-64-ASM)
 
-# Convention
-All functions of the library start with 'll' prefix, as you might guess it stands for 'linked list'.
-Each linked list has an associated compare function.
-It is used to search and check for existence of an element.
-Do not store objects of different types in the list.
+> linked list is a linear collection of data elements whose order is not given by their physical placement in memory. 
+> Instead, each element points to the next. 
+> It is a data structure consisting of a collection of nodes which together represent a sequence
+
+In contrary to other available implementations... This is written in assembly with its interface exposed to C
 
 # An example
 ```C
@@ -62,45 +60,82 @@ int main() {
   ll_release(list);
 }
 ```
+# Convention
+All functions of the library start with `ll` prefix, as you might guess it stands for `linked list`.
+Each linked list has an associated compare function.
+It is used to search and check for existence of an element.
+Do not store objects of different types in the list
 
 # What is going on under the hood?
 <h3>Linked list structure</h3>
 
-```
-+==================+=========+======================================================+
-|  Variable name   |  Size   |                     Description                      |
-+==================+=========+======================================================+
-| head             | 8 bytes | Pointer to the first node                            |
-+------------------+---------+------------------------------------------------------+
-| last             | 8 bytes | Pointer to the last node                             |
-+------------------+---------+------------------------------------------------------+
-| compare_function | 8 bytes | Function used to compare elements against each other |
-+------------------+---------+------------------------------------------------------+
-| size             | 8 bytes | Amount of elements in the list                       |
-+------------------+---------+------------------------------------------------------+
-```
+<table>
+    <tr>
+        <th>Variable name</th>
+        <th>Size</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>head</td>
+        <td>8 bytes</td>
+        <td>Pointer to the first node</td>
+    </tr>
+    <tr>
+        <td>last</td>
+        <td>8 bytes</td>
+        <td>Pointer to the last node</td>
+    </tr>
+    <tr>
+        <td>compare_function</td>
+        <td>8 bytes</td>
+        <td>Function used to compare elements against each other</td>
+    </tr>
+    <tr>
+        <td>size</td>
+        <td>8 bytes</td>
+        <td>Amount of elements in the list</td>
+    </tr>
+</table>
+
 <h3>Node structure</h3>
 
-```
-+===============+=========+==============================+
-| Variable name |  Size   |         Description          |
-+===============+=========+==============================+
-| value         | 8 bytes | Pointer to the stored value  |
-+---------------+---------+------------------------------+
-| next          | 8 bytes | Pointer to the next node     |
-+---------------+---------+------------------------------+
-```
+<table>
+    <tr>
+        <th>Variable name</th>
+        <th>Size</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>value</td>
+        <td>8 bytes</td>
+        <td>Pointer to the stored value</td>
+    </tr>
+    <tr>
+        <td>next</td>
+        <td>8 bytes</td>
+        <td>Pointer to the next node</td>
+    </tr>
+</table>
+
 <h3>Iterator structure</h3>
 
-```
-+===============+=========+====================================+
-| Variable name |  Size   |            Description             |
-+===============+=========+====================================+
-| current       | 8 bytes | Pointer to the current node        |
-+---------------+---------+------------------------------------+
-| previous      | 8 bytes | Pointer to the node before current |
-+---------------+---------+------------------------------------+
-```
+<table>
+    <tr>
+        <th>Variable name</th>
+        <th>Size</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>current</td>
+        <td>8 bytes</td>
+        <td>Pointer to the current node</td>
+    </tr>
+    <tr>
+        <td>previous</td>
+        <td>8 bytes</td>
+        <td>Pointer to the node before current</td>
+    </tr>
+</table>
 
 # Supported platforms
 Library works only on 64-bit systems
@@ -114,6 +149,7 @@ Library works only on 64-bit systems
     <li>nasm (tested on 2.13.03)</li>
     <li>gtest (tested on 1.8.1)</li>
     <li>gcc with C++14 support (tested on 9.1.0)</li>
+    <li>cmake (tested on 3.0.7)</li>
 </ul>
 
 # Running tests
