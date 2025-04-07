@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone https://github.com/google/googletest
+git clone -b release-1.10.0 https://github.com/google/googletest
 cd googletest
 mkdir build
 cd build
