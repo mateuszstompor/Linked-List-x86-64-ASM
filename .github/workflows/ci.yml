@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      docker:
+        image: docker:stable-dind
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Build Docker image
+      run: docker build -f ./tests/Dockerfile -t linked_list_tests .
+
+    - name: Run Google unit tests
+      run: docker run --rm linked_list_tests tests
+
+    - name: Memory footprint check
+      run: docker run --rm linked_list_tests mem_check
